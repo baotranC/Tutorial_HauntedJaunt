@@ -5,23 +5,16 @@ using System.Collections.Generic;
 
 public class FetchCollectablesQuest : Quest
 {
+	public string Type { get; }
+
 	public FetchCollectablesQuest(Image questItem, int id, bool isPrimaryQuest, string name,
-	string description, int nbTasksToComplete) : base(questItem, id, isPrimaryQuest, name, description, nbTasksToComplete)
+	string description, int nbTasksToComplete, string type) : base(questItem, id, isPrimaryQuest, name, description, nbTasksToComplete)
 	{
-		// base.super(questItem, id, isPrimaryQuest, name, description, nbTasksToComplete);
-		// QuestItem = questItem;
-		// Id = id;
-		// IsPrimaryQuest = isPrimaryQuest;
-		// Name = name;
-		// Description = description;
-		// NbTasksToComplete = nbTasksToComplete;
-		// NbTasksCompleted = 0;
-		// IsCompleted = false;
+		Type = type;
 	}
 
 	override public void Enable()
 	{
-		Debug.Log("OnEnable");
 		CollectableController.onFetchCollectable += AddCollectables;
 	}
 
@@ -32,7 +25,7 @@ public class FetchCollectablesQuest : Quest
 
 	public void AddCollectables(string collectableType)
 	{
-		if (collectableType.Equals("Star"))
+		if (collectableType.Equals(Type))
 		{
 			IncrementTaskCompleted();
 			if (IsCompleted)
@@ -41,5 +34,4 @@ public class FetchCollectablesQuest : Quest
 			}
 		}
 	}
-
 }

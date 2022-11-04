@@ -4708,6 +4708,7 @@ GameObject:
   m_Component:
   - component: {fileID: 410904364}
   - component: {fileID: 410904365}
+  - component: {fileID: 410904366}
   m_Layer: 0
   m_Name: QuestManager
   m_TagString: Untagged
@@ -4747,6 +4748,18 @@ MonoBehaviour:
   - {fileID: 773674671}
   - {fileID: 152356559}
   completedColor: {r: 0.24387981, g: 0.8018868, b: 0.13238695, a: 1}
+--- !u!114 &410904366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410904363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f6f1edfcb532e4584bcaeb3b010974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &480590192
 GameObject:
   m_ObjectHideFlags: 0

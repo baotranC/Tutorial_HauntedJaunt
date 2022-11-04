@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// TODO: Add audio
+/* Add audio
+ - Pick start
+ - Task Completed
+*/
 public class Quest
 {
 	public int Id { get; }

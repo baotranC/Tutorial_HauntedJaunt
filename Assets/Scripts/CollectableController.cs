@@ -6,9 +6,12 @@ using TMPro;
 
 public class CollectableController : MonoBehaviour
 {
+    public delegate void OnFetchCollectable(string collectableType);
+	public static OnFetchCollectable onFetchCollectable;
+
 	private void OnTriggerEnter(Collider collision) {
 		if(collision.tag == "Player"){
-			QuestManager.Instance.AddCollectables(gameObject.tag);
+			onFetchCollectable(gameObject.tag);
 			Destroy(gameObject);
 		}
 	}

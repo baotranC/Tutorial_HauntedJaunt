@@ -3,13 +3,20 @@ using UnityEngine.SceneManagement;
 
 public class GameEnding : MonoBehaviour
 {
-	public float fadeDuration = 1f;
-	public GameObject player;
-	public CanvasGroup exitBackgroundImageCanvasGroup;
-	public AudioSource exitAudio;
-	public CanvasGroup caughtBackgroundImageCanvasGroup;
-	public AudioSource caughtAudio;
-	public float displayImageDuration = 1f;
+	[SerializeField]
+	private float fadeDuration = 1f;
+	[SerializeField]
+	private GameObject player;
+	[SerializeField]
+	private CanvasGroup exitBackgroundImageCanvasGroup;
+	[SerializeField]
+	private AudioSource exitAudio;
+	[SerializeField]
+	private CanvasGroup caughtBackgroundImageCanvasGroup;
+	[SerializeField]
+	private AudioSource caughtAudio;
+	[SerializeField]
+	private float displayImageDuration = 1f;
 
 	bool m_IsPlayerAtExit;
 	float m_Timer;

@@ -5137,11 +5137,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HardStar
       objectReference: {fileID: 0}
-    - target: {fileID: 3233211021389902475, guid: d456cc5002b9f554ebd7b77a9c20610e,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d456cc5002b9f554ebd7b77a9c20610e, type: 3}
 --- !u!4 &675357649 stripped
@@ -5183,25 +5178,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &697140133 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1075171947960931680, guid: d456cc5002b9f554ebd7b77a9c20610e,
-    type: 3}
-  m_PrefabInstance: {fileID: 675357648}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &697140134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 697140133}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: decb1fb3bfe4de141bcbbdd75f282c1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  questmanager: {fileID: 410904363}
 --- !u!1 &698233562
 GameObject:
   m_ObjectHideFlags: 0
@@ -5259,7 +5235,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Fetch 3 Stars
+  m_text: Fetch 3 stars
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6090,7 +6066,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3 Ennemies
+  m_text: 3 enemies
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

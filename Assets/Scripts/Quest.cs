@@ -1,13 +1,15 @@
+using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 /* Add audio
  - Pick start
  - Task Completed
 */
-public class Quest
+public abstract class Quest
 {
+	public Image QuestItem { get; }
 	public int Id { get; }
 	public bool IsPrimaryQuest { get; }
 	public string Name { get; }
@@ -16,9 +18,13 @@ public class Quest
 	public int NbTasksCompleted { get; private set; }
 	public bool IsCompleted { get; private set; }
 
-	public Quest(int id, bool isPrimaryQuest, string name,
+	public abstract void Enable();
+	public abstract void Disable();
+
+	public Quest(Image questItem, int id, bool isPrimaryQuest, string name,
 	string description, int nbTasksToComplete)
 	{
+		QuestItem = questItem;
 		Id = id;
 		IsPrimaryQuest = isPrimaryQuest;
 		Name = name;

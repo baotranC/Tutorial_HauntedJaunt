@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
-	void OnEnable()
-	{
-		CollectableController.onFetchCollectable += AddCollectables; 	
-	}
+	// void OnEnable()
+	// {
+	// 	CollectableController.onFetchCollectable += AddCollectables; 	
+	// }
 
-	void OnDisable()
-	{
-		CollectableController.onFetchCollectable -= AddCollectables;	
-	}
+	// void OnDisable()
+	// {
+	// 	CollectableController.onFetchCollectable -= AddCollectables;	
+	// }
 
-	private void AddCollectables(string collectableType)
-	{
-		QuestManager.Instance.AddCollectables(collectableType);
-	}
+	// private void AddCollectables(string collectableType)
+	// {
+	// 	QuestManager.Instance.AddCollectables(collectableType);
+	// }
 }

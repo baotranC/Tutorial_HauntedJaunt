@@ -1,5 +1,5 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using System;
 
 public class Readme : ScriptableObject {
 	public Texture2D icon;

@@ -6,9 +6,7 @@ using TMPro;
 
 public class QuestFetchItem : MonoBehaviour
 {
-	// TODO: Serialize this instead of public
-	public Image questItem;
-	public Color completedColor;
+	public GameObject questmanager;
 
 	private void OnTriggerEnter(Collider collision) {
 		if(collision.tag == "Player"){
@@ -18,6 +16,8 @@ public class QuestFetchItem : MonoBehaviour
 	}
 
 	private void FinishQuest() {
-		questItem.color = completedColor;
+		// questItem.color = completedColor;
+		QuestManager gameManager = questmanager.GetComponent<QuestManager>();
+		gameManager.FinishQuest(3); // TODO Change this for const 
 	}
 }

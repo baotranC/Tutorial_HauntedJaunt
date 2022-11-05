@@ -26,3 +26,5 @@ Camera:
 
 
 	Minimap: https://www.youtube.com/watch?v=28JTTXqMvOU
+
+	Coroutine: https://docs.unity3d.com/ScriptReference/Coroutine.html

@@ -6,6 +6,8 @@ public class GameEnding : MonoBehaviour
 	[SerializeField]
 	private float fadeDuration = 1f;
 	[SerializeField]
+	private float displayImageDuration = 1f;
+	[SerializeField]
 	private GameObject player;
 	[SerializeField]
 	private CanvasGroup exitBackgroundImageCanvasGroup;
@@ -15,21 +17,31 @@ public class GameEnding : MonoBehaviour
 	private CanvasGroup caughtBackgroundImageCanvasGroup;
 	[SerializeField]
 	private AudioSource caughtAudio;
-	[SerializeField]
-	private float displayImageDuration = 1f;
+
+	bool m_IsPlayerAtExit;
+	bool m_IsPlayerCaught;
+	bool m_IsGameEnding;
+
+	float m_Timer;
+	bool m_HasAudioPlayed;
 
 	public delegate void OnExit();
 	public static OnExit onExit;
 
+	public void OnEnable()
+	{
+		ExitQuest.onEndGame += endLevel;
+	}
 
-	bool m_IsPlayerAtExit;
-	float m_Timer;
-	bool m_IsPlayerCaught;
-	bool m_HasAudioPlayed;
+	public void OnDisable()
+	{
+		ExitQuest.onEndGame -= endLevel;
+	}
+
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject == player)
+		if (other.gameObject.tag == "Player")
 		{
 			m_IsPlayerAtExit = true;
 		}
@@ -44,15 +56,20 @@ public class GameEnding : MonoBehaviour
 	{
 		if (m_IsPlayerAtExit)
 		{
-			EndLevel(exitBackgroundImageCanvasGroup, false, exitAudio);
+			m_IsPlayerAtExit = !m_IsPlayerAtExit;
+			onExit();
 		}
 		else if (m_IsPlayerCaught)
 		{
-			EndLevel(caughtBackgroundImageCanvasGroup, true, caughtAudio);
+			ManageEndGame(caughtBackgroundImageCanvasGroup, false, caughtAudio);
+		}
+		else if (m_IsGameEnding)
+		{
+			ManageEndGame(exitBackgroundImageCanvasGroup, false, exitAudio);
 		}
 	}
 
-	void EndLevel(CanvasGroup imageCanvasGroup, bool doRestart, AudioSource audioSource)
+	void ManageEndGame(CanvasGroup imageCanvasGroup, bool doRestart, AudioSource audioSource)
 	{
 		if (!m_HasAudioPlayed)
 		{
@@ -71,8 +88,14 @@ public class GameEnding : MonoBehaviour
 			}
 			else
 			{
-				onExit();
+				Debug.Log("Quit");
+				// Application.Quit();
 			}
 		}
+	}
+
+	private void endLevel()
+	{
+		m_IsGameEnding = true;
 	}
 }

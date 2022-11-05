@@ -11,7 +11,7 @@ public abstract class Quest
 {
 	public Image QuestItem { get; }
 	public int Id { get; }
-	public bool IsPrimaryQuest { get; }
+	public bool IsMainQuest { get; }
 	public string Name { get; }
 	public string Description { get; }
 	public int NbTasksToComplete { get; }
@@ -21,17 +21,19 @@ public abstract class Quest
 	public abstract void Enable();
 	public abstract void Disable();
 
-	public Quest(Image questItem, int id, bool isPrimaryQuest, string name,
+	public Quest(Image questItem, int id, bool isMainQuest, string name,
 	string description, int nbTasksToComplete)
 	{
 		QuestItem = questItem;
 		Id = id;
-		IsPrimaryQuest = isPrimaryQuest;
+		IsMainQuest = isMainQuest;
 		Name = name;
 		Description = description;
 		NbTasksToComplete = nbTasksToComplete;
 		NbTasksCompleted = 0;
-		IsCompleted = false;
+		// IsCompleted = false;
+		// TODO: Remove this: 
+		IsCompleted = true;
 	}
 
 	public void IncrementTaskCompleted()

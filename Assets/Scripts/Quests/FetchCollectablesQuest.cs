@@ -1,14 +1,11 @@
-using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
-using System.Collections.Generic;
 
 public class FetchCollectablesQuest : Quest
 {
 	public string Type { get; }
 
-	public FetchCollectablesQuest(Image questItem, int id, bool isPrimaryQuest, string name,
-	string description, int nbTasksToComplete, string type) : base(questItem, id, isPrimaryQuest, name, description, nbTasksToComplete)
+	public FetchCollectablesQuest(Image questItem, int id, bool isMainQuest, string name,
+	string description, int nbTasksToComplete, string type) : base(questItem, id, isMainQuest, name, description, nbTasksToComplete)
 	{
 		Type = type;
 	}

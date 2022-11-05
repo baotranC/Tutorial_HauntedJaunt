@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 using System.Collections.Generic;
 
 public class ExitQuest : Quest
 {
-	public ExitQuest(Image questItem, int id, bool isPrimaryQuest, string name,
-	string description, int nbTasksToComplete) : base(questItem, id, isPrimaryQuest, name, description, nbTasksToComplete)
+	public delegate void OnEndGame();
+	public static OnEndGame onEndGame;
+
+	public ExitQuest(Image questItem, int id, bool isMainQuest, string name,
+	string description, int nbTasksToComplete) : base(questItem, id, isMainQuest, name, description, nbTasksToComplete)
 	{
 	}
 
@@ -20,10 +22,34 @@ public class ExitQuest : Quest
 		GameEnding.onExit -= showExit;
 	}
 
+
 	public void showExit()
 	{
-		Debug.Log("Exit time");
-		// HUDManager.setVisibleHUD(false);
-		Application.Quit();
+		// Find Escape
+		if (!IsCompleted)
+		{
+			IncrementTaskCompleted();
+			if (IsCompleted)
+			{
+				QuestItem.color = QuestManager.COMPLETED_COLOR;
+			}
+		}
+
+		bool areMainQuestsCompleted = true;
+		// Verify all primary quest are done
+		List<Quest> quests = QuestManager.Instance.Quests;
+		foreach (var quest in quests)
+		{
+			if (quest.IsMainQuest && !quest.IsCompleted)
+			{
+				areMainQuestsCompleted = false;
+			}
+		}
+
+		if (areMainQuestsCompleted)
+		{
+			onEndGame();
+		}
 	}
+
 }

@@ -1,5 +1,7 @@
 # Tutorial_HauntedJaunt
 
+https://learn.unity.com/project/john-lemon-s-haunted-jaunt-3d-beginner
+
 TODO: Add command to fetch lfs file the first time
 
 TODO: Quest Manager:

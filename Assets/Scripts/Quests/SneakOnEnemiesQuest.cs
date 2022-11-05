@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 public class SneakOnEnemiesQuest : Quest
 {
-	public SneakOnEnemiesQuest(Image questItem, int id, bool isPrimaryQuest, string name,
-	string description, int nbTasksToComplete) : base(questItem, id, isPrimaryQuest, name, description, nbTasksToComplete)
+	public SneakOnEnemiesQuest(Image questItem, int id, bool isMainQuest, string name,
+	string description, int nbTasksToComplete) : base(questItem, id, isMainQuest, name, description, nbTasksToComplete)
 	{
 	}
 

@@ -9,6 +9,8 @@ TODO: Quest Manager:
 	- ? 
 
 
+retirer UI avec un boutona
+
 
 Quest system: 
 	https://www.youtube.com/watch?v=9sVZJTIIZws

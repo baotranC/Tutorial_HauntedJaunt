@@ -24,7 +24,7 @@ public class HUDManager : MonoBehaviour
 		}
 	}
 
-	public static void setVisibleHUD(bool isVisible)
+	public void setVisibleHUD(bool isVisible)
 	{
 		HUD.SetActive(isVisible);
 		m_isActive = isVisible;

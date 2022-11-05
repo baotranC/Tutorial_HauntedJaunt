@@ -23,7 +23,7 @@ public class ExitQuest : Quest
 	public void showExit()
 	{
 		Debug.Log("Exit time");
-		HUDManager.setVisibleHUD(false);
+		// HUDManager.setVisibleHUD(false);
 		Application.Quit();
 	}
 }

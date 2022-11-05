@@ -31,9 +31,7 @@ public abstract class Quest
 		Description = description;
 		NbTasksToComplete = nbTasksToComplete;
 		NbTasksCompleted = 0;
-		// IsCompleted = false;
-		// TODO: Remove this: 
-		IsCompleted = true;
+		IsCompleted = false;
 	}
 
 	public void IncrementTaskCompleted()

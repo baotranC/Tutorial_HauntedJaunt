@@ -3,16 +3,9 @@
 https://learn.unity.com/project/john-lemon-s-haunted-jaunt-3d-beginner
 
 TODO: Add command to fetch lfs file the first time
-
-TODO: Quest Manager:
-	- exit (with a wait .. ) if all main task are done
-	- change star for main task
-	- rooms
-	- ? 
-
+TODO: Add Sound
 
 retirer UI avec un boutonad
-
 
 Quest system: 
 	https://www.youtube.com/watch?v=9sVZJTIIZws

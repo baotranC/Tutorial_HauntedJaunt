@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using TMPro;
 
 public class GameEnding : MonoBehaviour
 {
@@ -18,9 +20,18 @@ public class GameEnding : MonoBehaviour
 	[SerializeField]
 	private AudioSource caughtAudio;
 
+	// Results
+	[SerializeField]
+	private GameObject resultsCanvas;
+
+	[SerializeField]
+	private TMP_Text textResults;
+
+
 	bool m_IsPlayerAtExit;
 	bool m_IsPlayerCaught;
 	bool m_IsGameEnding;
+	bool m_IsGameEnd;
 
 	float m_Timer;
 	bool m_HasAudioPlayed;
@@ -28,17 +39,10 @@ public class GameEnding : MonoBehaviour
 	public delegate void OnExit();
 	public static OnExit onExit;
 
-	public void OnEnable()
+	private void Start()
 	{
-		ExitQuest.onEndGame += endLevel;
+		resultsCanvas.SetActive(false);
 	}
-
-	public void OnDisable()
-	{
-		ExitQuest.onEndGame -= endLevel;
-	}
-
-
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.tag == "Player")
@@ -58,6 +62,7 @@ public class GameEnding : MonoBehaviour
 		{
 			m_IsPlayerAtExit = !m_IsPlayerAtExit;
 			onExit();
+			VerifyIfGameIsEnding();
 		}
 		else if (m_IsPlayerCaught)
 		{
@@ -88,14 +93,56 @@ public class GameEnding : MonoBehaviour
 			}
 			else
 			{
-				Debug.Log("Quit");
-				// Application.Quit();
+				if (!m_IsGameEnd)
+				{
+					m_IsGameEnd = true;
+					DisplayResult();
+				}
 			}
 		}
 	}
 
-	private void endLevel()
+	private void VerifyIfGameIsEnding()
 	{
-		m_IsGameEnding = true;
+		bool areMainQuestsCompleted = true;
+		// Verify all primary quest are done
+		List<Quest> quests = QuestManager.Instance.Quests;
+		foreach (var quest in quests)
+		{
+			if (quest.IsMainQuest && !quest.IsCompleted)
+			{
+				areMainQuestsCompleted = false;
+			}
+		}
+
+		if (areMainQuestsCompleted)
+		{
+			m_IsGameEnding = true;
+		}
+	}
+
+	private void DisplayResult()
+	{
+		resultsCanvas.SetActive(true);
+
+		List<Quest> quests = QuestManager.Instance.Quests;
+		string resutls = "";
+		int totalCompleted = 0;
+		int totalToComplete = 0;
+		foreach (var quest in quests)
+		{
+			resutls += quest.Name + ": " + quest.NbTasksCompleted + " / " + quest.NbTasksToComplete + "\n";
+			totalCompleted += quest.NbTasksCompleted;
+			totalToComplete += quest.NbTasksToComplete;
+		}
+
+		resutls += "\nTotal: " + totalCompleted + " / " + totalToComplete;
+		textResults.text = resutls;
+	}
+
+	public void Quit()
+	{
+		Debug.Log("Quit");
+		Application.Quit();
 	}
 }

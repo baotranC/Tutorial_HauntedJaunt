@@ -21,3 +21,6 @@ Camera:
 
 
 	https://www.youtube.com/watch?v=J8hPB6lv8kI
+
+
+	Minimap: https://www.youtube.com/watch?v=28JTTXqMvOU

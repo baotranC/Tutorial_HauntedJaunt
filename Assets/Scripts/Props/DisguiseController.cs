@@ -12,8 +12,6 @@ public class DisguiseController : MonoBehaviour
 		if (collision.tag == "Player")
 		{
 			onDisguiseMode(true);
-			// SwapPlayerController.SwapObjects();
-			// onFetchCollectable(gameObject.tag);
 			Destroy(gameObject);
 		}
 	}

@@ -18,6 +18,10 @@ public class GameEnding : MonoBehaviour
 	[SerializeField]
 	private float displayImageDuration = 1f;
 
+	public delegate void OnExit();
+	public static OnExit onExit;
+
+
 	bool m_IsPlayerAtExit;
 	float m_Timer;
 	bool m_IsPlayerCaught;
@@ -67,7 +71,7 @@ public class GameEnding : MonoBehaviour
 			}
 			else
 			{
-				Application.Quit();
+				onExit();
 			}
 		}
 	}

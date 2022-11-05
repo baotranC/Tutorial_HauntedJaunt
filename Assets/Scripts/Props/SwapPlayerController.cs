@@ -26,7 +26,7 @@ public class SwapPlayerController : MonoBehaviour
 
 	public void SwapObjects(bool isDisguise)
 	{
-		StartCoroutine(DisguiseCoutine(5f));
+		StartCoroutine(DisguiseCoutine(4f));
 	}
 
 	IEnumerator DisguiseCoutine(float time)

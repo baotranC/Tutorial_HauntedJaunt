@@ -1,25 +1,35 @@
 # Tutorial_HauntedJaunt
 
+Tutorial followed: John Lemon: Haunted Jaunt
 https://learn.unity.com/project/john-lemon-s-haunted-jaunt-3d-beginner
 
-TODO: Add command to fetch lfs file the first time
-TODO: Add Sound
+===============================================
+Project description: 
+===============================================
+This project was made by following the tutorial and adding some new features. Here is the list of new features: 
 
-retirer UI avec un boutonad
+- Quest system and display of current objectives as well as progress
+- Minimap displaying details of the environment as well as character and enemies
+- Enable and Desable HUDs
+- Possibility to temporarily hide from ghosts with tombstones
+- TODO: Add Sound
 
+===============================================
+Project specification:
+===============================================
+This project save large files using LFS.
+
+===============================================
+References used: 
+===============================================
 Quest system: 
 	https://www.youtube.com/watch?v=9sVZJTIIZws
 
 Events: 
 	https://www.youtube.com/watch?v=k4JlFxPcqlg
 
-Camera: 
-	https://www.youtube.com/watch?v=nR5P7AH4aHE
+Minimap: 
+	https://www.youtube.com/watch?v=28JTTXqMvOU
 
-
-	https://www.youtube.com/watch?v=J8hPB6lv8kI
-
-
-	Minimap: https://www.youtube.com/watch?v=28JTTXqMvOU
-
-	Coroutine: https://docs.unity3d.com/ScriptReference/Coroutine.html
+Coroutine: 
+	https://docs.unity3d.com/ScriptReference/Coroutine.html
